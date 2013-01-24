@@ -1,0 +1,63 @@
+<!doctype html>
+<html ng-app="app">
+  <header>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.js"></script>
+    <script language="javascript" type="text/javascript">
+      angular.module('app', []);
+      
+      //Whatever you put on the controller scope,
+      //will be availalble in the HTML element bound to the controller.
+      function MyController($scope){
+        $scope.name="";
+        $scope.newMessage = "Are you ready for the love?";
+        $scope.messages = ["You're the best, ", "We are thankful for your existence, ", "We love you, ", "I can't live without you, ", "You are amazing, ", "You are the king of the world, "]; 
+        $scope.counter = 0;
+        $scope.fontColor = "green";
+        $scope.fontsize = 4;
+        $scope.clickCount = 0;
+        $scope.imgUrl="";
+        
+        $scope.add = function(){
+          $scope.clickCount++;
+          if ($scope.clickCount % 10 == 0){
+            $scope.fontsize = 10;
+                $scope.fontColor="red";
+                $scope.newMessage = "GOD, YOU'RE UGLY!";
+                $scope.imgUrl="http://www.militarypress.com/wp-content/uploads/2012/10/truth-for-web.jpg";
+                
+          }else if($scope.counter<5){
+                $scope.imgUrl="";
+                $scope.fontsize = 4;
+                $scope.fontColor="green";
+                $scope.newMessage = $scope.messages[$scope.counter] + $scope.name + "!";
+                $scope.counter++;
+              
+           }else{
+               $scope.fontsize = 4;
+               $scope.fontColor="green";
+               $scope.newMessage = $scope.messages[$scope.counter] + $scope.name + "!";
+               $scope.counter = 0;
+            }
+          };
+      }
+    </script>
+  </header>
+  
+  <body ng-controller="MyController">
+    <b>Boost your self-esteem</b><br>
+    <br>
+    Input your name to start feeling good about yourself:<br>     
+    <input type="text" ng-model="name">
+    <input type="submit" ng-click="add()" value="Go!">
+    <br>
+    <br>
+    <br>
+    
+    <i><font color="{{fontColor}}" size={{fontsize}}>{{newMessage}}</font></i>
+    <br>
+    
+    <img src="{{imgUrl}}">
+    
+  </body>
+  
+</html>
