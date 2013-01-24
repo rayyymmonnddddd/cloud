@@ -38,7 +38,7 @@
                 $scope.imgUrl="http://www.militarypress.com/wp-content/uploads/2012/10/truth-for-web.jpg";
                 
           }else if($scope.counter<5){
-                $scope.imgUrl="";
+                $scope.imgUrl="http://www.hotel-harvey.com/assets/backoffice/misc/transparent.png";
                 $scope.fontsize = 4;
                 $scope.fontColor="green";
                 $scope.newMessage = $scope.messages[$scope.counter] + $scope.name + "!";
@@ -65,6 +65,7 @@
     <input type="submit" ng-click="add()" value="Go!">
     </header>
     <section>
+    <br>
     <h4><font color="{{fontColor}}" size={{fontsize}}>{{newMessage}}</font></h4>
     
     <img src="{{imgUrl}}">
